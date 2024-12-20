@@ -9,7 +9,9 @@
     "ios": "expo run:ios",
     "web": "expo start --web",
     "test": "jest --watchAll",
-    "lint": "expo lint"
+    "lint": "bun eslint .",
+    "lint:fix": "bun eslint . --fix",
+    "format": "bun prettier --write '**/*.{js,jsx,ts,tsx,json,css,md}'"
   },
   "jest": {
     "preset": "jest-expo"
@@ -21,7 +23,12 @@
     "@typescript-eslint/eslint-plugin": "^8.18.1",
     "@typescript-eslint/parser": "^8.18.1",
     "eslint": "^9.17.0",
+    "eslint-config-airbnb": "^19.0.4",
     "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-react-hooks": "^5.1.0",
     "expo": "~52.0.18",
     "expo-blur": "~14.0.1",
     "expo-constants": "~17.0.3",
