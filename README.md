@@ -1,9 +1,7 @@
----
-
+```markdown
 # **Expo Kickoff Starter Kit 2024 🚀**
 
-Welcome to your Expo app! 👋 This is a powerful starter template designed to kickstart your next React Native project with Expo.
-Pre-configured with **ESLint**, **Prettier**, and a robust development workflow, it's perfect for building scalable cross-platform applications.
+Welcome to your Expo app! 👋 This powerful starter template is designed to kickstart your next React Native project with Expo. Pre-configured with **ESLint**, **Prettier**, and a robust development workflow, it's perfect for building scalable cross-platform applications.
 
 ---
 
@@ -21,8 +19,17 @@ Pre-configured with **ESLint**, **Prettier**, and a robust development workflow,
 
 1. **Install dependencies**
 
+   You can use either **npm** or **bun** to install the project dependencies:
+
+   Using npm:
    ```bash
    npm install
+   ```
+
+   Using bun:
+
+   ```bash
+   bun install
    ```
 
 2. **Start the app**
@@ -31,8 +38,12 @@ Pre-configured with **ESLint**, **Prettier**, and a robust development workflow,
    npx expo start
    ```
 
+     ```bash
+   bun start
+   ```
+
 3. **Explore development options**
-   After starting the app, you can:
+   After starting the app, you can choose from the following options:
    - Open the app in a [Development Build](https://docs.expo.dev/develop/development-builds/introduction/)
    - Use an [Android Emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
    - Try the app in an [iOS Simulator](https://docs.expo.dev/workflow/ios-simulator/)
@@ -46,6 +57,10 @@ Want to reset your project? Run:
 
 ```bash
 npm run reset-project
+```
+
+```bash
+bun run reset-project
 ```
 
 This command moves the starter code to the **app-example** directory and sets up a blank **app** directory for fresh development.
@@ -81,8 +96,66 @@ Dive deeper into Expo development with these resources:
 
 Connect with the amazing Expo community:
 
-- **[Expo on GitHub](https://github.com/expo/expo):** Explore and contribute to Expo's open-source ecosystem.
-- **[Discord Community](https://chat.expo.dev):** Chat with developers and ask questions.
+- **[Expo on GitHub](https://github.com/expo/expo)**: Explore and contribute to Expo's open-source ecosystem.
+- **[Discord Community](https://chat.expo.dev)**: Chat with developers and ask questions.
+
+---
+
+## **🧩 Package Scripts**
+
+Here are some helpful scripts to manage your Expo app:
+
+```json
+"scripts": {
+    "start": "expo start --dev-client",
+    "reset-project": "node ./scripts/reset-project.js",
+    "android": "expo run:android",
+    "ios": "expo run:ios",
+    "web": "expo start --web",
+    "test": "jest --watchAll",
+    "lint": "bun eslint .",
+    "lint:fix": "bun eslint . --fix",
+    "format": "bun prettier --write '**/*.{js,jsx,ts,tsx,json,css,md}'"
+}
+```
+
+### **Run the App in Simulators**
+
+- **For Android Simulator**:
+
+   ```bash
+   npm run android
+   ```
+
+   or
+
+   ```bash
+   bun run android
+   ```
+
+- **For iOS Simulator** (requires macOS):
+
+   ```bash
+   npm run ios
+   ```
+
+   or
+
+   ```bash
+   bun run ios
+   ```
+
+---
+
+## **🌐 Publish Your App**
+
+To publish your app, use the following command:
+
+```bash
+npx expo publish
+```
+
+This will create a public link to your app that can be shared with others.
 
 ---
 
@@ -103,6 +176,4 @@ This project is licensed under the [MIT License](LICENSE). Feel free to use it i
 
 Kick off your next app with this template and start building incredible cross-platform experiences with Expo!
 
----
-
-This README is crafted to be beginner-friendly yet detailed enough for developers familiar with Expo. It includes all necessary instructions, resources, and next steps to make it a strong starting point.
+```
