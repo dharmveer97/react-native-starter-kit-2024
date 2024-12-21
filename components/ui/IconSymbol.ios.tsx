@@ -7,10 +7,6 @@ export function IconSymbol({
   color,
   style,
   weight = 'regular',
-
-
-
-
 }: {
   name: SymbolViewProps['name'];
   size?: number;

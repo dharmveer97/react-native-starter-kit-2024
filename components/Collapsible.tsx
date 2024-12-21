@@ -7,14 +7,6 @@ import { IconSymbol } from '@/components/ui/IconSymbol';
 import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
 
-
-
-
-
-
-
-
-
 export function Collapsible({
   children,
   title,

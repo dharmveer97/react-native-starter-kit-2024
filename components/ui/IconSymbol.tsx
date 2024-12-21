@@ -3,7 +3,12 @@
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import { SymbolWeight } from 'expo-symbols';
 import React from 'react';
-import { OpaqueColorValue, StyleProp, ViewStyle } from 'react-native';
+import {
+  OpaqueColorValue,
+  StyleProp,
+  ViewStyle,
+  TextStyle,
+} from 'react-native';
 
 // Add your SFSymbol to MaterialIcons mappings here.
 const MAPPING = {
@@ -29,14 +34,15 @@ export type IconSymbolName = keyof typeof MAPPING;
  */
 export function IconSymbol({
   name,
-  size = 24,
+  size,
   color,
   style,
+  weight,
 }: {
   name: IconSymbolName;
   size?: number;
   color: string | OpaqueColorValue;
-  style?: StyleProp<ViewStyle>;
+  style?: StyleProp<ViewStyle>; // Keep as ViewStyle
   weight?: SymbolWeight;
 }) {
   return (
@@ -44,7 +50,15 @@ export function IconSymbol({
       color={color}
       size={size}
       name={MAPPING[name]}
-      style={style}
+      style={style as StyleProp<TextStyle>}
+      weight={weight}
     />
   );
 }
+
+// Define default props
+IconSymbol.defaultProps = {
+  size: 24, // Default size
+  weight: 'regular', // Default weight
+  style: {}, // Default style
+};

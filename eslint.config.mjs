@@ -5,6 +5,8 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import js from '@eslint/js';
 import { FlatCompat } from '@eslint/eslintrc';
+import typescriptEslint from '@typescript-eslint/eslint-plugin';
+import typescriptParser from '@typescript-eslint/parser';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -17,20 +19,20 @@ const compat = new FlatCompat({
 export default [
   ...compat.extends('plugin:react/recommended', 'airbnb', 'prettier'),
   {
-    plugins: {
-      react,
-      prettier,
-    },
-
+    files: ['**/*.{js,mjs,cjs,ts,tsx}'],
     languageOptions: {
       globals: {
         ...globals.browser,
       },
-
       ecmaVersion: 'latest',
       sourceType: 'module',
+      parser: typescriptParser,
     },
-
+    plugins: {
+      react,
+      prettier,
+      '@typescript-eslint': typescriptEslint,
+    },
     rules: {
       'prettier/prettier': [
         'error',
@@ -70,6 +72,10 @@ export default [
       'jsx-a11y/label-has-associated-control': 'off',
       'jsx-a11y/click-events-have-key-events': 'off',
       'jsx-a11y/no-static-element-interactions': 'off',
+
+      // TypeScript specific rules can go here
+      '@typescript-eslint/no-unused-vars': ['warn'], // Warning for unused variables
+      '@typescript-eslint/explicit-function-return-type': 'off', // Optional: disable return type enforcement
     },
   },
 ];

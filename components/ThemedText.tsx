@@ -8,6 +8,8 @@ export type ThemedTextProps = TextProps & {
   type?: 'default' | 'title' | 'defaultSemiBold' | 'subtitle' | 'link';
 };
 
+console.log('hello word list');
+
 export function ThemedText({
   style,
   lightColor,
