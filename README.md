@@ -1,4 +1,3 @@
-```markdown
 # **Expo Kickoff Starter Kit 2024 🚀**
 
 Welcome to your Expo app! 👋 This powerful starter template is designed to kickstart your next React Native project with Expo. Pre-configured with **ESLint**, **Prettier**, and a robust development workflow, it's perfect for building scalable cross-platform applications.
@@ -173,7 +172,5 @@ This project is licensed under the [MIT License](LICENSE). Feel free to use it i
 ---
 
 ## **🚀 Ready to Build?**
-
-Kick off your next app with this template and start building incredible cross-platform experiences with Expo!
 
 ```
