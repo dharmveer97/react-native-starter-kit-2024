@@ -11,6 +11,6 @@
     <key>EXUpdatesSDKVersion</key>
     <string>52.0.0</string>
     <key>EXUpdatesURL</key>
-    <string>https://exp.host/@anonymous/my-app</string>
+    <string>https://exp.host/@anonymous/kickoff-expo</string>
   </dict>
 </plist>
