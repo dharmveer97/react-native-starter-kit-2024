@@ -173,6 +173,4 @@ This project is licensed under the [MIT License](LICENSE). Feel free to use it i
 
 ## **🚀 Ready to Build?**
 
-Kick off your next app with this template and start building incredible cross-platform experiences with Expo!
-
 ```
