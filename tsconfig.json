@@ -4,7 +4,18 @@
     "strict": true,
     "paths": {
       "@/*": ["./*"]
-    }
+    },
+    "target": "esnext",
+    "module": "commonjs",
+    "jsx": "react",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "baseUrl": "./"
+    // "paths": {
+    //   "*": ["src/*"]
+    // }
   },
+
   "include": ["**/*.ts", "**/*.tsx", ".expo/types/**/*.ts", "expo-env.d.ts"]
 }

@@ -1,25 +1,13 @@
 import react from 'eslint-plugin-react';
-import prettier from 'eslint-plugin-prettier';
-import globals from 'globals';
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
-import js from '@eslint/js';
-import { FlatCompat } from '@eslint/eslintrc';
+import reactNative from 'eslint-plugin-react-native';
 import typescriptEslint from '@typescript-eslint/eslint-plugin';
+import prettier from 'eslint-plugin-prettier';
 import typescriptParser from '@typescript-eslint/parser';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-  recommendedConfig: js.configs.recommended,
-  allConfig: js.configs.all,
-});
+import globals from 'globals';
 
 export default [
-  ...compat.extends('plugin:react/recommended', 'airbnb', 'prettier'),
   {
-    files: ['**/*.{js,mjs,cjs,ts,tsx}'],
+    files: ['**/*.{js,mjs,cjs,ts,tsx,mjs,css}'],
     languageOptions: {
       globals: {
         ...globals.browser,
@@ -30,52 +18,34 @@ export default [
     },
     plugins: {
       react,
+      'react-native': reactNative,
       prettier,
       '@typescript-eslint': typescriptEslint,
     },
+    settings: {
+      react: {
+        version: 'detect',
+      },
+    },
     rules: {
-      'prettier/prettier': [
-        'error',
-        {
-          singleQuote: true,
-          trailingComma: 'all',
-          bracketSpacing: true,
-          jsxBracketSameLine: false,
-        },
-      ],
+      // Prettier
+      'prettier/prettier': 'error',
 
-      'react/no-unstable-nested-components': [
-        'off',
-        {
-          allowAsProps: true,
-        },
-      ],
+      // General
+      'no-console': 'warn',
 
-      'react/no-unknown-property': [
-        'error',
-        {
-          ignore: ['css', 'tw'],
-        },
-      ],
-
-      'global-require': 'off',
-      'no-underscore-dangle': 'off',
-      'import/no-extraneous-dependencies': 'off',
-      'import/prefer-default-export': 'off',
+      // React
       'react/react-in-jsx-scope': 'off',
-      'react/jsx-filename-extension': 'off',
-      'react/prop-types': 'off',
-      'react/forbid-prop-types': 'off',
       'react/jsx-props-no-spreading': 'off',
-      'react/function-component-definition': 'off',
-      'jsx-a11y/anchor-is-valid': 'off',
-      'jsx-a11y/label-has-associated-control': 'off',
-      'jsx-a11y/click-events-have-key-events': 'off',
-      'jsx-a11y/no-static-element-interactions': 'off',
+      'react/prop-types': 'off',
 
-      // TypeScript specific rules can go here
-      '@typescript-eslint/no-unused-vars': ['warn'], // Warning for unused variables
-      '@typescript-eslint/explicit-function-return-type': 'off', // Optional: disable return type enforcement
+      // React Native
+      'react-native/no-inline-styles': 'off',
+      'react-native/split-platform-components': 'off',
+
+      // TypeScript
+      '@typescript-eslint/no-unused-vars': ['warn'],
+      '@typescript-eslint/no-explicit-any': 'warn',
     },
   },
 ];
